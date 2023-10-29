@@ -16,14 +16,14 @@ type application struct {
 }
 
 func main() {
-	connectionString := flag.String("dbConnString", "./urlMap", "sqlite connection string to store the mappings")
+	connectionString := flag.String("dbConnString", "./urlmap", "sqlite connection string to store the mappings")
 
 	db, err := openDb(*connectionString)
 
 	app := &application{urls: &models.ShortUrlModel{DB: db}}
 
 	srv := &http.Server{
-		Addr:    ":8080",
+		Addr:    ":3000",
 		Handler: app.routes(),
 	}
 	if err != nil {
