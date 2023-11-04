@@ -1,0 +1,19 @@
+{{define "main"}}
+<h1 class="text-2xl">
+  Your links shorter in a matter of
+  <span class="text-[#ababab]">seconds</span>
+</h1>
+<form hx-post="/shorten" hx-target="this" class="">
+  <div class="flex-col mb-3">
+    <label for="linkInputField">Enter link to shorten</label>
+    <input
+      id="linkInputField"
+      class="border border-zinc-400 bg-transparent rounded-md"
+      name="url"
+    />
+  </div>
+  <div class="w-full flex justify-end">
+    <button class="bg-[#ababab] rounded-md px-3 py-1">Go!</button>
+  </div>
+</form>
+{{end}}

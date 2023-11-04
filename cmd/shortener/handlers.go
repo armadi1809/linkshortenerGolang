@@ -25,7 +25,7 @@ func (app *application) handleLinkRedirection(w http.ResponseWriter, r *http.Req
 }
 
 func (app *application) homePage(w http.ResponseWriter, r *http.Request) {
-	t := template.Must(template.ParseFiles("./ui/html/base.html"))
+	t := template.Must(template.ParseFiles("./ui/html/base.html", "./ui/html/linkinput.html"))
 	t.ExecuteTemplate(w, "base", nil)
 
 	return
@@ -51,7 +51,16 @@ func (app *application) linkResponse(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte(fmt.Sprintf("The short url for %s is %s", shortenedUrl.Path, shortenedUrl.Url)))
+	t := template.Must(template.ParseFiles("./ui/html/linkresult.html"))
 
+	templateData := struct {
+		InputUrl string
+		NewLink  string
+	}{
+		InputUrl: shortenedUrl.Path,
+		NewLink:  shortenedUrl.Url,
+	}
+
+	t.ExecuteTemplate(w, "shortLinkResult", &templateData)
 	return
 }

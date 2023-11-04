@@ -6,22 +6,22 @@
     integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
     crossorigin="anonymous"
   ></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <head>
     <meta charset="utf-8" />
     <title>Url Shortener</title>
     <!-- Also link to some fonts hosted by Google -->
   </head>
-  <body>
-    <header>
-      <h1><a href="/">Home</a></h1>
+  <body class="bg-zinc-100 font-mono">
+    <header class="flex items-center justify-center w-full p-4 bg-[#ababab]">
+      <h1 class="text-xl"><a href="/">Shorten Link</a></h1>
     </header>
-    <main>
-      <form hx-post="/shorten" hx-target="this">
-        <label for="linkInputField">Enter link to shorten</label>
-        <input id="linkInputField" name="url" />
-        <button>Submit</button>
-      </form>
+    <main
+      class="h-screen flex flex-col items-center justify-center gap-10"
+      id="maincontent"
+    >
+      {{template "main" .}}
     </main>
   </body>
 </html>
