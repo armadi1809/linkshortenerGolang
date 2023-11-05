@@ -45,7 +45,7 @@ func (model *ShortUrlModel) CreatePath(url string) (*ShortUrl, error) {
 		return nil, err
 	}
 
-	shortUrl := &ShortUrl{Url: fmt.Sprintf("https://localhost:3000/path/%d", lastInsertId), Path: url}
+	shortUrl := &ShortUrl{Url: fmt.Sprintf("http://localhost:3000/path/%d", lastInsertId), Path: url}
 
 	return shortUrl, nil
 

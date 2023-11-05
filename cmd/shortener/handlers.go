@@ -61,6 +61,6 @@ func (app *application) linkResponse(w http.ResponseWriter, r *http.Request) {
 		NewLink:  shortenedUrl.Url,
 	}
 
-	t.ExecuteTemplate(w, "shortLinkResult", &templateData)
+	t.ExecuteTemplate(w, "linkresult", &templateData)
 	return
 }

@@ -1,7 +1,12 @@
-<h1 class="text-2xl">
+{{define "linkresult"}}
+<div class="text-2xl">
   The short link for {{.InputUrl}} is
-  <span class="text-[#ababab]">{{.NewLink}}</span>
-  <a class="bg-[#ababab] rounded-md px-3 py-1" href="/"
-    >Re-enter another link</a
-  >
-</h1>
+  <a href="{{.NewLink}}" class="text-[#ababab]">{{.NewLink}}</a>
+  <br />
+  <div class="mt-2 w-full flex items-center justify-center">
+    <a class="bg-[#ababab] rounded-md px-3 py-1" href="/"
+      >Re-enter another link</a
+    >
+  </div>
+</div>
+{{end}}
